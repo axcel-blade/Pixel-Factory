@@ -7,8 +7,7 @@ export default function Navbar() {
             <nav className="fixed flex top-0 justify-between p-6 w-full z-50">
                 <div>
                     <div>
-                        <Image src="/PixelFactoryLogo.svg" alt="" width={100} height={100} 
-                        />
+                        <Image src="/PixelFactoryLogo.svg" alt="" width={100} height={100} />
                     </div>
                 </div>
             </nav>
