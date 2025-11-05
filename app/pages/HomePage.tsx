@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function HomePage() {
     return (
         <div className="relative h-full w-full overflow-hidden scroll-auto">
-            <div id='home'>
+            <section id='home'>
                 {/* Background Video */}
                 <video
                     autoPlay
@@ -21,10 +21,10 @@ export default function HomePage() {
                 {/* Dark Overlay */}
                 <div className="absolute inset-0 bg-black/75"></div>
 
-                {/* Page Content */}
+                {/* Home */}
                 <div className="relative flex flex-col items-center justify-center h-full">
                     <div>
-                        <Image src="/WelcomePixelFactory.svg" alt="" width={920} height={680} />
+                        <Image src="/WelcomePixelFactory.svg" alt="" width={1080} height={720} />
                     </div>
                     <div>
                         <Link href={'#services'}>
@@ -32,14 +32,17 @@ export default function HomePage() {
                         </Link>
                     </div>
                 </div>
+            </section>
 
+            {/* Services */}
+            <section id='#services'>
                 <div className='relative flex flex-col items-center justify-between h-full'>
                     <div>
                         <span>
                             <h1>Services</h1>
                         </span>
                     </div>
-                    <div className='flex flex-row'>
+                    <div className='flex flex-row gap-10'>
                         <div>
                             <Image src="/3D_Architectural_Visulization_icon.png" alt="" width={200} height={200} />
                         </div>
@@ -50,7 +53,7 @@ export default function HomePage() {
                             <Image src="/3D_Product_visualization_icon.png" alt="" width={200} height={200} />
                         </div>
                     </div>
-                    <div className='flex flex-row'>
+                    <div className='flex flex-row gap-10'>
                         <div>
                             <Image src="/Graphic_Designs_icon.png" alt="" width={200} height={200} />
                         </div>
@@ -62,7 +65,7 @@ export default function HomePage() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     )
 }
