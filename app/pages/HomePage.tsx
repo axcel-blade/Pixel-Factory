@@ -17,13 +17,13 @@ export default function HomePage() {
             </video>
 
             {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black/50"></div>
+            <div className="absolute inset-0 bg-black/75"></div>
 
             {/* Page Content */}
             <div className="relative flex items-center justify-center h-full">
-                <div className='grid grid-cols-1'>
+                <div className='flex flex-col items-center justify-center'>
                     <div>
-                    <Image src="/WelcomePixelFactory.svg" alt="" width={1920} height={1080} />
+                        <Image src="/WelcomePixelFactory.svg" alt="" width={820} height={580} />
                     </div>
                     <div>
                         <Image src="/ExploreServices.svg" alt="" width={100} height={100} />
