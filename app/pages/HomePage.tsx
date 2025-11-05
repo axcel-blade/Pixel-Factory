@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function HomePage() {
     return (
-        <div className="relative h-full w-full overflow-hidden scroll-auto">
+        <div className="relative h-full w-full overflow-hidden scroll-0.5">
             <section id='home'>
                 {/* Background Video */}
                 <video
@@ -27,7 +27,7 @@ export default function HomePage() {
                         <Image src="/WelcomePixelFactory.svg" alt="" width={1080} height={720} />
                     </div>
                     <div>
-                        <Link href={'#services'}>
+                        <Link href='#services'>
                             <Image src="/ExploreServices.svg" alt="" width={100} height={100} />
                         </Link>
                     </div>
