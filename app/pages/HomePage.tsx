@@ -98,7 +98,7 @@ export default function HomePage() {
                         </h1>
                     </div>
                     <div>
-                        <span  className='text-lg font-poppins'>We’re proud to work with a diverse range of clients across industries, from startups to global brands.</span>
+                        <span className='text-lg font-poppins'>We’re proud to work with a diverse range of clients across industries, from startups to global brands.</span>
                     </div>
                     <div className='flex flex-row gap-10 justify-center items-center'>
                         <div className='flex flex-row items-center gap-5 bg-white h-full'>
@@ -139,8 +139,40 @@ export default function HomePage() {
                         <Image src="/Review2.png" alt="" width={500} height={500} />
                     </div>
                     <div>
-                        <Link href='#ourclients'>
+                        <Link href='#whoweare'>
                             <Image src="/WhoWeAre.png" alt="" width={100} height={100} />
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* Testimonials */}
+            <section id='whoweare'className='h-screen scroll-smooth'>
+                <div className='relative flex flex-col items-center justify-center-safe h-full gap-3'>
+                    <div>
+                        <h1 className='text-6xl font-poppins'>
+                            <b>WHO WE ARE</b>
+                        </h1>
+                    </div>
+                    <div>
+                        <span className='text-lg font-poppins'>We are an independent, Sri Lanka-based digital content company dedicated to bringing your vision to life.<br/> 
+                            As your bridge between creativity and technology, we transform ideas into stunning visual experiences that<br/> 
+                            surpass the expected and elevate your project.</span>
+                    </div>
+                    <div className='flex flex-col items-center justify-center'>
+                        <Image src="/MadhushaPerera.png" alt="" width={300} height={300} />
+                        <div className='flex flex-col items-center justify-center'>
+                            <h1 className='text-xl font-poppins'>
+                                <b>Madhusha Perera</b>
+                            </h1>
+                            <h1 className='text-xl font-poppins'>
+                                <b>Co-Founder Lead Visual Effects & CGI</b>
+                            </h1>
+                        </div>
+                    </div>
+                    <div>
+                        <Link href='#contactus'>
+                            <Image src="/ContactUs.png" alt="" width={100} height={100} />
                         </Link>
                     </div>
                 </div>
