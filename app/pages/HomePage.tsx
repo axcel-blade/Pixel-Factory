@@ -146,7 +146,7 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* Testimonials */}
+            {/* Who We Are */}
             <section id='whoweare'className='h-screen scroll-smooth'>
                 <div className='relative flex flex-col items-center justify-center-safe h-full gap-3'>
                     <div>
@@ -174,6 +174,34 @@ export default function HomePage() {
                         <Link href='#contactus'>
                             <Image src="/ContactUs.png" alt="" width={100} height={100} />
                         </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* Contact Us */}
+            <section id='contactus'className='h-screen scroll-smooth'>
+                <div className='relative flex flex-col items-center justify-center-safe h-full gap-3 bg-white'>
+                    <div>
+                        <h1 className='text-6xl font-poppins text-black'>
+                            <b>CONTACT US</b>
+                        </h1>
+                    </div>
+                    <div className='flex flex-row gap-10'>
+                        {/* Address */}
+                        <div className='flex flex-col'>
+                            <h1 className='text-xl font-bold text-black'>ADDRESS</h1>
+                            <h1 className='text-lg font-bold text-black/50'>14 Duke St, Bentley WA</h1>
+                        </div>
+                        {/* Phone */}
+                        <div className='flex flex-col'>
+                            <h1 className='text-xl font-bold text-black'>PHONE</h1>
+                            <h1 className='text-lg font-bold text-black/50'>0123 456 789</h1>
+                        </div>
+                        {/* Email */}
+                        <div className='flex flex-col'>
+                            <h1 className='text-xl font-bold text-black'>EMAIL</h1>
+                            <h1 className='text-lg font-bold text-black/50'>info@pixelfactorylk.com</h1>
+                        </div>
                     </div>
                 </div>
             </section>
