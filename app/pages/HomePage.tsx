@@ -5,6 +5,7 @@ import Link from 'next/link'
 export default function HomePage() {
     return (
         <div className="relative h-full w-full overflow-hidden">
+            {/* Home */}
             <section id='home' className='h-screen scroll-smooth'>
                 {/* Background Video */}
                 <video
@@ -21,7 +22,7 @@ export default function HomePage() {
                 {/* Dark Overlay */}
                 <div className="absolute inset-0 bg-black/75"></div>
 
-                {/* Home */}
+                {/* Home page content */}
                 <div className="relative flex flex-col items-center justify-center h-full">
                     <div>
                         <Image src="/WelcomePixelFactory.svg" alt="" width={1080} height={720} />
@@ -75,18 +76,35 @@ export default function HomePage() {
             {/* Work */}
             <section id='work'className='h-screen scroll-smooth bg-white'>
                 <div className='relative flex flex-col items-center justify-center-safe h-full'>
-                    <h1 className='text-6xl font-poppins'>
-                        <b>WORK</b>
-                    </h1>
+                    <div>
+                        <h1 className='text-6xl font-poppins'>
+                            <b>WORK</b>
+                        </h1>
+                    </div>
+                    <div>
+                        <span>We’re proud to work with a diverse range of clients across industries, from startups to global brands.</span>
+                    </div>
+                    <div>
+                        <Link href='#ourclients'>
+                            <Image src="/OurClients.png" alt="" width={100} height={100} />
+                        </Link>
+                    </div>
                 </div>
             </section>
 
             {/* Our clients */}
-            <section id='work'className='h-screen scroll-smooth'>
+            <section id='ourclients'className='h-screen scroll-smooth'>
                 <div className='relative flex flex-col items-center justify-center-safe h-full'>
-                    <h1 className='text-6xl font-poppins'>
-                        <b>OUR CLIENTS</b>
-                    </h1>
+                    <div>
+                        <h1 className='text-6xl font-poppins'>
+                            <b>OUR CLIENTS</b>
+                        </h1>
+                    </div>
+                    <div>
+                        <Link href='#ourclients'>
+                            <Image src="/Testimonials.png" alt="" width={100} height={100} />
+                        </Link>
+                    </div>
                 </div>
             </section>
         </div>
