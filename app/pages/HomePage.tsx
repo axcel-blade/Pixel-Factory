@@ -74,10 +74,10 @@ export default function HomePage() {
             </section>
 
             {/* Work */}
-            <section id='work'className='h-screen scroll-smooth bg-white'>
-                <div className='relative flex flex-col items-center justify-center-safe h-full'>
+            <section id='work'className='h-screen scroll-smooth'>
+                <div className='relative flex flex-col items-center justify-center-safe h-full bg-white'>
                     <div>
-                        <h1 className='text-6xl font-poppins'>
+                        <h1 className='text-6xl font-poppins text-black'>
                             <b>WORK</b>
                         </h1>
                     </div>
@@ -119,8 +119,28 @@ export default function HomePage() {
                         </div>
                     </div>
                     <div>
-                        <Link href='#ourclients'>
+                        <Link href='#testimonials'>
                             <Image src="/Testimonials.png" alt="" width={100} height={100} />
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* Testimonials */}
+            <section id='testimonials'className='h-screen scroll-smooth'>
+                <div className='relative flex flex-col items-center justify-center-safe h-full gap-3 bg-white'>
+                    <div>
+                        <h1 className='text-6xl font-poppins text-black'>
+                            <b>TESTIMONIALS</b>
+                        </h1>
+                    </div>
+                    <div className='flex flex-row'>
+                        <Image src="/Review1.png" alt="" width={500} height={500} />
+                        <Image src="/Review2.png" alt="" width={500} height={500} />
+                    </div>
+                    <div>
+                        <Link href='#ourclients'>
+                            <Image src="/WhoWeAre.png" alt="" width={100} height={100} />
                         </Link>
                     </div>
                 </div>
