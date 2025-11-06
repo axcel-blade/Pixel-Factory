@@ -4,15 +4,15 @@ import Link from 'next/link'
 
 export default function HomePage() {
     return (
-        <div className="relative h-full w-full overflow-hidden scroll-0.5">
-            <section id='home'>
+        <div className="relative h-full w-full overflow-hidden scroll-smooth">
+            <section id='home' className='h-screen'>
                 {/* Background Video */}
                 <video
                     autoPlay
                     loop
                     muted
                     playsInline
-                    className="absolute top-0 left-0 w-full h-fit object-cover"
+                    className="absolute top-0 left-0 w-full h-screen object-cover"
                 >
                     <source src="./PixelFactory.webm" type="video/webm" />
                     Your browser does not support the video tag.
@@ -35,7 +35,7 @@ export default function HomePage() {
             </section>
 
             {/* Services */}
-            <section id='#services'>
+            <section id='#services' className='h-screen'>
                 <div className='relative flex flex-col items-center justify-between h-full'>
                     <div>
                         <span>
