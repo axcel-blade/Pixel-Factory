@@ -36,9 +36,11 @@ export default function HomePage() {
 
             {/* Services */}
             <section id='services' className='h-screen scroll-smooth'>
-                <div className='relative flex flex-col items-center justify-center h-full'>
+                <div className='relative flex flex-col items-center justify-center-safe h-full'>
                     <div>
-                        <h1 className='text-5xl font-poppins'>SERVICES</h1>
+                        <h1 className='text-6xl font-poppins'>
+                            <b>SERVICES</b>
+                        </h1>
                     </div>
                     <div className='flex flex-row gap-10'>
                         <div>
@@ -62,6 +64,29 @@ export default function HomePage() {
                             <Image src="/Photography_and_Videography_icon.png" alt="" width={200} height={200} />
                         </div>
                     </div>
+                    <div>
+                        <Link href='#work'>
+                            <Image src="/Work.png" alt="" width={100} height={100} />
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* Work */}
+            <section id='work'className='h-screen scroll-smooth bg-white'>
+                <div className='relative flex flex-col items-center justify-center-safe h-full'>
+                    <h1 className='text-6xl font-poppins'>
+                        <b>WORK</b>
+                    </h1>
+                </div>
+            </section>
+
+            {/* Our clients */}
+            <section id='work'className='h-screen scroll-smooth'>
+                <div className='relative flex flex-col items-center justify-center-safe h-full'>
+                    <h1 className='text-6xl font-poppins'>
+                        <b>OUR CLIENTS</b>
+                    </h1>
                 </div>
             </section>
         </div>
