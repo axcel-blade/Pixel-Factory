@@ -35,7 +35,7 @@ export default function HomePage() {
             </section>
 
             {/* Services */}
-            <section id='#services' className='h-screen'>
+            <section id='services' className='h-screen'>
                 <div className='relative flex flex-col items-center justify-between h-full'>
                     <div>
                         <span>
