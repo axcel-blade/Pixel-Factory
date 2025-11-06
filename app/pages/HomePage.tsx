@@ -186,7 +186,7 @@ export default function HomePage() {
                             <b>CONTACT US</b>
                         </h1>
                     </div>
-                    <div className='flex flex-row gap-10'>
+                    <div className='flex flex-row gap-20'>
                         {/* Address */}
                         <div className='flex flex-col'>
                             <h1 className='text-xl font-bold text-black'>ADDRESS</h1>
