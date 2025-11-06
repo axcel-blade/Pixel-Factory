@@ -4,8 +4,8 @@ import Link from 'next/link'
 
 export default function HomePage() {
     return (
-        <div className="relative h-full w-full overflow-hidden scroll-smooth">
-            <section id='home' className='h-screen'>
+        <div className="relative h-full w-full overflow-hidden">
+            <section id='home' className='h-screen scroll-smooth'>
                 {/* Background Video */}
                 <video
                     autoPlay
@@ -35,12 +35,10 @@ export default function HomePage() {
             </section>
 
             {/* Services */}
-            <section id='services' className='h-screen'>
-                <div className='relative flex flex-col items-center justify-between h-full'>
+            <section id='services' className='h-screen scroll-smooth'>
+                <div className='relative flex flex-col items-center justify-center h-full'>
                     <div>
-                        <span>
-                            <h1>Services</h1>
-                        </span>
+                        <h1 className='text-5xl font-poppins'>SERVICES</h1>
                     </div>
                     <div className='flex flex-row gap-10'>
                         <div>
