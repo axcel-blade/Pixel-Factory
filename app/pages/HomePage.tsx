@@ -180,7 +180,7 @@ export default function HomePage() {
 
             {/* Contact Us */}
             <section id='contactus'className='h-screen scroll-smooth'>
-                <div className='relative flex flex-col items-center justify-center-safe h-full gap-3 bg-white'>
+                <div className='relative flex flex-col items-center justify-center-safe h-full gap-5 bg-white'>
                     <div>
                         <h1 className='text-6xl font-poppins text-black'>
                             <b>CONTACT US</b>
@@ -202,6 +202,30 @@ export default function HomePage() {
                             <h1 className='text-xl font-bold text-black'>EMAIL</h1>
                             <h1 className='text-lg font-bold text-black/50'>info@pixelfactorylk.com</h1>
                         </div>
+                    </div>
+                    <div>
+                        <form action="post" className='flex flex-col gap-10'>
+                            <div  className='flex flex-row gap-5'>
+                                <div>
+                                    <input type="text" placeholder="Name" className='border-b text-black w-full'/>
+                                </div>
+                                <div>
+                                    <input type="email" placeholder="Email" className='border-b text-black w-full'/>
+                                </div>
+                                <div>
+                                    <input type="tel" placeholder="Phone No." className='border-b text-black w-full' pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"/>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Your design idea / Dropbox / Cloud link" className='border-b text-black w-full'/>
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Your requirements" className='border-b text-black w-full'/>
+                            </div>
+                            <div className='flex flex-col items-center'>
+                                <button className='flex bg-black text-white font-bold px-4 py-2 rounded'>Submit</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </section>
