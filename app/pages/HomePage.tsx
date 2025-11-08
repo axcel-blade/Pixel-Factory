@@ -101,7 +101,7 @@ export default function HomePage() {
                         <span className='text-lg font-poppins'>We’re proud to work with a diverse range of clients across industries, from startups to global brands.</span>
                     </div>
                     <div className='flex flex-row gap-10 justify-center items-center'>
-                        <div className='flex flex-row items-center gap-5 bg-white h-full'>
+                        <div className='flex lg:flex-row sm:flex-col items-center gap-5 bg-white h-full'>
                             <div>
                                 <Image src="/Uga.jpg" alt="" width={150} height={150} />
                             </div>
@@ -142,7 +142,7 @@ export default function HomePage() {
                             <b>TESTIMONIALS</b>
                         </h1>
                     </div>
-                    <div className='flex flex-row'>
+                    <div className='flex lg:flex-row sm:flex'>
                         <Image src="/Review1.png" alt="" width={500} height={500} />
                         <Image src="/Review2.png" alt="" width={500} height={500} />
                     </div>
