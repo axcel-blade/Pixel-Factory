@@ -102,10 +102,18 @@ export default function HomePage() {
                     </div>
                     <div className='flex flex-row gap-10 justify-center items-center'>
                         <div className='flex flex-row items-center gap-5 bg-white h-full'>
-                            <Image src="/Uga.jpg" alt="" width={150} height={150} />
-                            <Image src="/JHStudio.jpg" alt="" width={150} height={150} />
-                            <Image src="/ASA.png" alt="" width={150} height={150} />
-                            <Image src="/Athukorala.jpg" alt="" width={150} height={150} />
+                            <div>
+                                <Image src="/Uga.jpg" alt="" width={150} height={150} />
+                            </div>
+                            <div>
+                                <Image src="/JHStudio.jpg" alt="" width={150} height={150} />
+                            </div>
+                            <div>
+                                <Image src="/ASA.png" alt="" width={150} height={150} />
+                            </div>
+                            <div>
+                                <Image src="/Athukorala.jpg" alt="" width={150} height={150} />
+                            </div>
                         </div>
                         <div className='flex flex-col items-center gap-5'>
                             <div className='flex flex-col items-center'>
