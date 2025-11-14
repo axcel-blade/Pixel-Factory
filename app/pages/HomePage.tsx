@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import InstagramFeed from '../components/InstagramFeed'
+import ImageScroll from '../components/ImageScroll'
 
 export default function HomePage() {
     return (
@@ -105,8 +106,8 @@ export default function HomePage() {
                         <span className='text-lg font-poppins'>We’re proud to work with a diverse range of clients across industries, from startups to global brands.</span>
                     </div>
                     <div className='flex flex-row gap-10 justify-center items-center'>
-                        <div className='flex lg:flex-row sm:flex-col items-center gap-5 bg-white h-full'>
-                            <div>
+                        <div className='flex flex-row items-center gap-5 bg-white h-full'>
+                            {/*<div>
                                 <Image src="/Uga.jpg" alt="" width={150} height={150} />
                             </div>
                             <div>
@@ -117,7 +118,8 @@ export default function HomePage() {
                             </div>
                             <div>
                                 <Image src="/Athukorala.jpg" alt="" width={150} height={150} />
-                            </div>
+                            </div>*/}
+                            <ImageScroll />
                         </div>
                         <div className='flex flex-col items-center gap-5'>
                             <div className='flex flex-col items-center'>
