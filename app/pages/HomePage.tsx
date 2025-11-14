@@ -95,7 +95,7 @@ export default function HomePage() {
             </section>
 
             {/* Our clients */}
-            <section id='ourclients'className='h-screen scroll-smooth'>
+            <section id='ourclients'className='sm:h-screen scroll-smooth'>
                 <div className='relative flex flex-col items-center justify-center-safe h-full gap-3'>
                     <div>
                         <h1 className='text-6xl font-poppins'>
@@ -105,7 +105,7 @@ export default function HomePage() {
                     <div>
                         <span className='text-lg font-poppins'>We’re proud to work with a diverse range of clients across industries, from startups to global brands.</span>
                     </div>
-                    <div className='flex flex-row gap-10 justify-center items-center'>
+                    <div className='flex flex-col sm:flex-row gap-10 justify-center items-center'>
                         <div className='flex flex-row items-center gap-5 bg-white h-full'>
                             <ImageScroll />
                         </div>
@@ -129,14 +129,14 @@ export default function HomePage() {
             </section>
 
             {/* Testimonials */}
-            <section id='testimonials'className='h-screen scroll-smooth'>
+            <section id='testimonials'className='lg:h-screen sm:h-screen scroll-smooth'>
                 <div className='relative flex flex-col items-center justify-center-safe h-full gap-3 bg-white'>
                     <div>
                         <h1 className='text-6xl font-poppins text-black'>
                             <b>TESTIMONIALS</b>
                         </h1>
                     </div>
-                    <div className='flex lg:flex-row sm:flex'>
+                    <div className='flex flex-col sm:flex-row'>
                         <Image src="/Review1.png" alt="" width={500} height={500} />
                         <Image src="/Review2.png" alt="" width={500} height={500} />
                     </div>
@@ -181,14 +181,14 @@ export default function HomePage() {
             </section>
 
             {/* Contact Us */}
-            <section id='contactus'className='h-screen scroll-smooth'>
+            <section id='contactus'className='lg:h-screen sm:h-screen scroll-smooth'>
                 <div className='relative flex flex-col items-center justify-center-safe h-full gap-5 bg-white'>
                     <div>
                         <h1 className='text-6xl font-poppins text-black'>
                             <b>CONTACT US</b>
                         </h1>
                     </div>
-                    <div className='flex flex-row gap-20'>
+                    <div className='flex flex-col sm:flex-row sm:gap-20 gap-5'>
                         {/* Address */}
                         <div className='flex flex-col'>
                             <h1 className='text-xl font-bold text-black'>ADDRESS</h1>
@@ -207,7 +207,7 @@ export default function HomePage() {
                     </div>
                     <div>
                         <form action="post" className='flex flex-col gap-10'>
-                            <div  className='flex flex-row gap-5'>
+                            <div  className='flex flex-col sm:flex-row gap-5'>
                                 <div>
                                     <input type="text" placeholder="Name" className='border-b text-black w-full'/>
                                 </div>
