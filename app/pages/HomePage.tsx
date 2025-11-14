@@ -76,14 +76,14 @@ export default function HomePage() {
             </section>
 
             {/* Work */}
-            <section id='work'className='h-screen scroll-smooth'>
+            <section id='work'className='scroll-smooth h-full'>
                 <div className='relative flex flex-col items-center justify-center-safe h-full bg-white'>
                     <div>
                         <h1 className='text-6xl font-poppins text-black'>
                             <b>WORK</b>
                         </h1>
                     </div>
-                    <div>
+                    <div className='w-full'>
                         <InstagramFeed />
                     </div>
                     <div>
