@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import InstagramFeed from '../components/InstagramFeed'
 
 export default function HomePage() {
     return (
@@ -82,6 +83,9 @@ export default function HomePage() {
                         </h1>
                     </div>
                     <div>
+                        <InstagramFeed />
+                    </div>
+                    <div>
                         <Link href='#ourclients'>
                             <Image src="/OurClients.png" alt="" width={100} height={100} />
                         </Link>
@@ -121,7 +125,7 @@ export default function HomePage() {
                                 <h1 className='text-3xl'>Project Count</h1>
                             </div>
                             <div className='flex flex-col items-center'>
-                                <h1 className='text-9xl font-bold'>3</h1>
+                                <h1 className='text-9xl font-bold'>03</h1>
                                 <h1 className='text-3xl'>Years Service</h1>
                             </div>
                         </div>

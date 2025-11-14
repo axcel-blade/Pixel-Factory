@@ -25,8 +25,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* 
+
 * {
-  border: dotted red 1px;
+  /*border: dotted red 1px;*/
+  scroll-behavior: smooth;
 }
-*/
