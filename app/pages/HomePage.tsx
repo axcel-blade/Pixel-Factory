@@ -38,14 +38,14 @@ export default function HomePage() {
             </section>
 
             {/* Services */}
-            <section id='services' className='h-screen scroll-smooth'>
+            <section id='services' className='sm:h-screen scroll-smooth'>
                 <div className='relative flex flex-col items-center justify-center-safe h-full'>
                     <div>
                         <h1 className='text-6xl font-poppins'>
                             <b>SERVICES</b>
                         </h1>
                     </div>
-                    <div className='flex flex-row gap-10'>
+                    <div className='flex flex-col sm:flex-row gap-10'>
                         <div>
                             <Image src="/3D_Architectural_Visulization_icon.png" alt="" width={250} height={250} />
                         </div>
@@ -56,7 +56,7 @@ export default function HomePage() {
                             <Image src="/3D_Product_visualization_icon.png" alt="" width={250} height={250} />
                         </div>
                     </div>
-                    <div className='flex flex-row gap-10'>
+                    <div className='flex flex-col sm:flex-row gap-10'>
                         <div>
                             <Image src="/Graphic_Designs_icon.png" alt="" width={250} height={250} />
                         </div>
