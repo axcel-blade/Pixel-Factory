@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const images = [
   "/Uga.jpg",
   "/JHStudio.jpg",
@@ -12,7 +14,7 @@ export default function ImageScroll() {
     <div className="w-full overflow-hidden rounded-xl bg-white">
       <div className="flex w-max animate-scroll gap-6">
         {slider.map((src, index) => (
-          <img
+          <Image
             key={`${src}-${index}`}
             src={src}
             width={150}
