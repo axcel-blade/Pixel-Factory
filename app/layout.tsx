@@ -1,5 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
+import JsonLd from "./components/JsonLd";
+import { rootMetadata } from "@/lib/metadata";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -18,9 +20,13 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-export const metadata: Metadata = {
-  title: "Pixel Factory",
-  description: "3D Visualizations Product Animations & Video Productions",
+export const metadata: Metadata = rootMetadata;
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  colorScheme: "dark",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -33,6 +39,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} font-poppins antialiased`}
       >
+        <JsonLd />
         {children}
       </body>
     </html>

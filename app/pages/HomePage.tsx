@@ -1,236 +1,254 @@
-import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import InstagramFeed from '../components/InstagramFeed'
-import ImageScroll from '../components/ImageScroll'
+import Image from "next/image";
+import Link from "next/link";
+import InstagramFeed from "../components/InstagramFeed";
+import ImageScroll from "../components/ImageScroll";
+import { Section, SectionCTA, SectionHeading } from "../components/Section";
+
+const serviceIcons = [
+  { src: "/3D_Architectural_Visulization_icon.png", alt: "3D Architectural Visualization" },
+  { src: "/Web_Design_and_Development_icon.png", alt: "Web Design and Development" },
+  { src: "/3D_Product_visualization_icon.png", alt: "3D Product Visualization" },
+  { src: "/Graphic_Designs_icon.png", alt: "Graphic Design" },
+  { src: "/Video_Productions_icon.png", alt: "Video Productions" },
+  { src: "/Photography_and_Videography_icon.png", alt: "Photography and Videography" },
+];
 
 export default function HomePage() {
-    return (
-        <div className="relative h-full w-full overflow-hidden">
-            {/* Home */}
-            <section id='home' className='h-screen scroll-smooth'>
-                {/* Background Video */}
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="absolute top-0 left-0 w-full h-screen object-cover"
-                >
-                    <source src="./PixelFactory.webm" type="video/webm" />
-                    Your browser does not support the video tag.
-                </video>
+  return (
+    <main className="relative w-full overflow-x-hidden">
+      {/* Home */}
+      <section
+        id="home"
+        className="relative flex min-h-screen items-center justify-center scroll-mt-24"
+      >
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-hidden
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source src="/PixelFactory.webm" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
 
-                {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-black/75"></div>
+        <div className="absolute inset-0 bg-black/75" />
 
-                {/* Home page content */}
-                <div className="relative flex flex-col items-center justify-center h-full">
-                    <div>
-                        <Image src="/WelcomePixelFactory.svg" alt="" width={1080} height={720} />
-                    </div>
-                    <div>
-                        <Link href='#services'>
-                            <Image src="/ExploreServices.svg" alt="" width={100} height={100} />
-                        </Link>
-                    </div>
-                </div>
-            </section>
-
-            {/* Services */}
-            <section id='services' className='sm:h-screen scroll-smooth'>
-                <div className='relative flex flex-col items-center justify-center-safe h-full'>
-                    <div>
-                        <h1 className='text-6xl font-poppins'>
-                            <b>SERVICES</b>
-                        </h1>
-                    </div>
-                    <div className='flex flex-col sm:flex-row gap-10'>
-                        <div>
-                            <Image src="/3D_Architectural_Visulization_icon.png" alt="" width={250} height={250} />
-                        </div>
-                        <div>
-                            <Image src="/Web_Design_and_Development_icon.png" alt="" width={250} height={250} />
-                        </div>
-                        <div>
-                            <Image src="/3D_Product_visualization_icon.png" alt="" width={250} height={250} />
-                        </div>
-                    </div>
-                    <div className='flex flex-col sm:flex-row gap-10'>
-                        <div>
-                            <Image src="/Graphic_Designs_icon.png" alt="" width={250} height={250} />
-                        </div>
-                        <div>
-                            <Image src="/Video_Productions_icon.png" alt="" width={250} height={250} />
-                        </div>
-                        <div>
-                            <Image src="/Photography_and_Videography_icon.png" alt="" width={250} height={250} />
-                        </div>
-                    </div>
-                    <div>
-                        <Link href='#work'>
-                            <Image src="/Work.png" alt="" width={100} height={100} />
-                        </Link>
-                    </div>
-                </div>
-            </section>
-
-            {/* Work */}
-            <section id='work'className='scroll-smooth h-full'>
-                <div className='relative flex flex-col items-center justify-center-safe h-full bg-white'>
-                    <div>
-                        <h1 className='text-6xl font-poppins text-black'>
-                            <b>WORK</b>
-                        </h1>
-                    </div>
-                    <div className='w-full'>
-                        <InstagramFeed />
-                    </div>
-                    <div>
-                        <Link href='#ourclients'>
-                            <Image src="/OurClients.png" alt="" width={100} height={100} />
-                        </Link>
-                    </div>
-                </div>
-            </section>
-
-            {/* Our clients */}
-            <section id='ourclients'className='sm:h-screen scroll-smooth'>
-                <div className='relative flex flex-col items-center justify-center-safe h-full gap-3'>
-                    <div>
-                        <h1 className='text-6xl font-poppins'>
-                            <b>OUR CLIENTS</b>
-                        </h1>
-                    </div>
-                    <div>
-                        <span className='text-lg font-poppins'>We’re proud to work with a diverse range of clients across industries, from startups to global brands.</span>
-                    </div>
-                    <div className='flex flex-col sm:flex-row gap-10 justify-center items-center'>
-                        <div className='flex flex-row items-center gap-5 bg-white h-full'>
-                            <ImageScroll />
-                        </div>
-                        <div className='flex flex-col justify-center items-center gap-5'>
-                            <div className='flex flex-col items-center'>
-                                <h1 className='text-9xl font-bold'>50</h1>
-                                <h1 className='text-3xl'>Project Count</h1>
-                            </div>
-                            <div className='flex flex-col items-center'>
-                                <h1 className='text-9xl font-bold'>03</h1>
-                                <h1 className='text-3xl'>Years Service</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <Link href='#testimonials'>
-                            <Image src="/Testimonials.png" alt="" width={100} height={100} />
-                        </Link>
-                    </div>
-                </div>
-            </section>
-
-            {/* Testimonials */}
-            <section id='testimonials'className='lg:h-screen sm:h-screen scroll-smooth'>
-                <div className='relative flex flex-col items-center justify-center-safe h-full gap-3 bg-white'>
-                    <div>
-                        <h1 className='text-6xl font-poppins text-black'>
-                            <b>TESTIMONIALS</b>
-                        </h1>
-                    </div>
-                    <div className='flex flex-col sm:flex-row'>
-                        <Image src="/Review1.png" alt="" width={500} height={500} />
-                        <Image src="/Review2.png" alt="" width={500} height={500} />
-                    </div>
-                    <div>
-                        <Link href='#whoweare'>
-                            <Image src="/WhoWeAre.png" alt="" width={100} height={100} />
-                        </Link>
-                    </div>
-                </div>
-            </section>
-
-            {/* Who We Are */}
-            <section id='whoweare'className='h-screen scroll-smooth'>
-                <div className='relative flex flex-col items-center justify-center-safe h-full gap-3'>
-                    <div>
-                        <h1 className='text-6xl font-poppins'>
-                            <b>WHO WE ARE</b>
-                        </h1>
-                    </div>
-                    <div>
-                        <span className='text-lg font-poppins'>We are an independent, Sri Lanka-based digital content company dedicated to bringing your vision to life.<br/> 
-                            As your bridge between creativity and technology, we transform ideas into stunning visual experiences that<br/> 
-                            surpass the expected and elevate your project.</span>
-                    </div>
-                    <div className='flex flex-col items-center justify-center'>
-                        <Image src="/MadhushaPerera.png" alt="" width={300} height={300} />
-                        <div className='flex flex-col items-center justify-center'>
-                            <h1 className='text-xl font-poppins'>
-                                <b>Madhusha Perera</b>
-                            </h1>
-                            <h1 className='text-xl font-poppins'>
-                                <b>Co-Founder Lead Visual Effects & CGI</b>
-                            </h1>
-                        </div>
-                    </div>
-                    <div>
-                        <Link href='#contactus'>
-                            <Image src="/ContactUs.png" alt="" width={100} height={100} />
-                        </Link>
-                    </div>
-                </div>
-            </section>
-
-            {/* Contact Us */}
-            <section id='contactus'className='lg:h-screen sm:h-screen scroll-smooth'>
-                <div className='relative flex flex-col items-center justify-center-safe h-full gap-5 bg-white'>
-                    <div>
-                        <h1 className='text-6xl font-poppins text-black'>
-                            <b>CONTACT US</b>
-                        </h1>
-                    </div>
-                    <div className='flex flex-col sm:flex-row sm:gap-20 gap-5'>
-                        {/* Address */}
-                        <div className='flex flex-col'>
-                            <h1 className='text-xl font-bold text-black'>ADDRESS</h1>
-                            <h1 className='text-lg font-bold text-black/50'>14 Duke St, Bentley WA</h1>
-                        </div>
-                        {/* Phone */}
-                        <div className='flex flex-col'>
-                            <h1 className='text-xl font-bold text-black'>PHONE</h1>
-                            <h1 className='text-lg font-bold text-black/50'>0123 456 789</h1>
-                        </div>
-                        {/* Email */}
-                        <div className='flex flex-col'>
-                            <h1 className='text-xl font-bold text-black'>EMAIL</h1>
-                            <h1 className='text-lg font-bold text-black/50'>info@pixelfactorylk.com</h1>
-                        </div>
-                    </div>
-                    <div>
-                        <form action="post" className='flex flex-col gap-10'>
-                            <div  className='flex flex-col sm:flex-row gap-5'>
-                                <div>
-                                    <input type="text" placeholder="Name" className='border-b text-black w-full'/>
-                                </div>
-                                <div>
-                                    <input type="email" placeholder="Email" className='border-b text-black w-full'/>
-                                </div>
-                                <div>
-                                    <input type="tel" placeholder="Phone No." className='border-b text-black w-full' pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"/>
-                                </div>
-                            </div>
-                            <div>
-                                <input type="text" placeholder="Your design idea / Dropbox / Cloud link" className='border-b text-black w-full'/>
-                            </div>
-                            <div>
-                                <input type="text" placeholder="Your requirements" className='border-b text-black w-full'/>
-                            </div>
-                            <div className='flex flex-col items-center'>
-                                <button className='flex bg-black text-white font-bold px-4 py-2 rounded'>Submit</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </section>
+        <div className="relative z-10 flex w-full max-w-7xl flex-col items-center gap-6 px-4 pt-24 pb-16 sm:gap-8 sm:px-6 lg:px-8">
+          <Image
+            src="/WelcomePixelFactory.svg"
+            alt="Welcome to Pixel Factory"
+            width={1080}
+            height={720}
+            priority
+            className="h-auto w-full max-w-3xl sm:max-w-4xl lg:max-w-5xl"
+          />
+          <Link
+            href="#services"
+            className="transition-opacity hover:opacity-80"
+            aria-label="Explore services"
+          >
+            <Image
+              src="/ExploreServices.svg"
+              alt=""
+              width={100}
+              height={100}
+              className="h-auto w-16 sm:w-20 lg:w-24"
+            />
+          </Link>
         </div>
-    )
+      </section>
+
+      {/* Services */}
+      <Section id="services">
+        <SectionHeading>SERVICES</SectionHeading>
+
+        <ul className="grid w-full grid-cols-1 place-items-center gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
+          {serviceIcons.map((icon) => (
+            <li key={icon.src} className="flex justify-center">
+              <Image
+                src={icon.src}
+                alt={icon.alt}
+                width={250}
+                height={250}
+                className="h-auto w-full max-w-[180px] sm:max-w-[220px] lg:max-w-[250px]"
+              />
+            </li>
+          ))}
+        </ul>
+
+        <SectionCTA href="#work" src="/Work.png" alt="View our work" />
+      </Section>
+
+      {/* Work */}
+      <Section id="work" variant="light" innerClassName="gap-6 sm:gap-8">
+        <SectionHeading>WORK</SectionHeading>
+
+        <div className="w-full max-w-5xl">
+          <InstagramFeed />
+        </div>
+
+        <SectionCTA href="#ourclients" src="/OurClients.png" alt="Our clients" />
+      </Section>
+
+      {/* Our clients */}
+      <Section id="ourclients">
+        <SectionHeading>OUR CLIENTS</SectionHeading>
+
+        <p className="max-w-2xl text-center text-base leading-relaxed sm:text-lg">
+          We&apos;re proud to work with a diverse range of clients across
+          industries, from startups to global brands.
+        </p>
+
+        <div className="flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:items-center lg:gap-16">
+          <div className="w-full max-w-xl lg:flex-1">
+            <ImageScroll />
+          </div>
+
+          <div className="flex shrink-0 flex-col items-center gap-8 sm:flex-row lg:flex-col lg:gap-10">
+            <div className="flex flex-col items-center text-center">
+              <span className="text-6xl font-bold leading-none sm:text-7xl lg:text-8xl">
+                50
+              </span>
+              <span className="mt-1 text-xl sm:text-2xl lg:text-3xl">
+                Project Count
+              </span>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <span className="text-6xl font-bold leading-none sm:text-7xl lg:text-8xl">
+                03
+              </span>
+              <span className="mt-1 text-xl sm:text-2xl lg:text-3xl">
+                Years Service
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <SectionCTA
+          href="#testimonials"
+          src="/Testimonials.png"
+          alt="Testimonials"
+        />
+      </Section>
+
+      {/* Testimonials */}
+      <Section id="testimonials" variant="light">
+        <SectionHeading>TESTIMONIALS</SectionHeading>
+
+        <div className="flex w-full flex-col items-center justify-center gap-6 sm:flex-row sm:flex-wrap sm:gap-8">
+          <Image
+            src="/Review1.png"
+            alt="Client review"
+            width={500}
+            height={500}
+            className="h-auto w-full max-w-sm sm:max-w-md"
+          />
+          <Image
+            src="/Review2.png"
+            alt="Client review"
+            width={500}
+            height={500}
+            className="h-auto w-full max-w-sm sm:max-w-md"
+          />
+        </div>
+
+        <SectionCTA href="#whoweare" src="/WhoWeAre.png" alt="Who we are" />
+      </Section>
+
+      {/* Who We Are */}
+      <Section id="whoweare">
+        <SectionHeading>WHO WE ARE</SectionHeading>
+
+        <p className="max-w-3xl text-center text-base leading-relaxed sm:text-lg">
+          We are an independent, Sri Lanka-based digital content company
+          dedicated to bringing your vision to life. As your bridge between
+          creativity and technology, we transform ideas into stunning visual
+          experiences that surpass the expected and elevate your project.
+        </p>
+
+        <div className="flex flex-col items-center gap-4">
+          <Image
+            src="/MadhushaPerera.png"
+            alt="Madhusha Perera"
+            width={300}
+            height={300}
+            className="h-auto w-48 max-w-full sm:w-56 lg:w-72"
+          />
+          <div className="flex flex-col items-center gap-1 text-center">
+            <h3 className="text-lg font-bold sm:text-xl">Madhusha Perera</h3>
+            <p className="text-base font-bold sm:text-xl">
+              Co-Founder Lead Visual Effects &amp; CGI
+            </p>
+          </div>
+        </div>
+
+        <SectionCTA href="#contactus" src="/ContactUs.png" alt="Contact us" />
+      </Section>
+
+      {/* Contact Us */}
+      <Section id="contactus" variant="light" innerClassName="gap-6 sm:gap-8">
+        <SectionHeading>CONTACT US</SectionHeading>
+
+        <div className="grid w-full max-w-3xl grid-cols-1 gap-6 text-center sm:grid-cols-3 sm:gap-8 sm:text-left">
+          <div className="flex flex-col gap-1">
+            <h3 className="text-lg font-bold sm:text-xl">ADDRESS</h3>
+            <p className="text-base text-black/50 sm:text-lg">
+              14 Duke St, Bentley WA
+            </p>
+          </div>
+          <div className="flex flex-col gap-1">
+            <h3 className="text-lg font-bold sm:text-xl">PHONE</h3>
+            <p className="text-base text-black/50 sm:text-lg">0123 456 789</p>
+          </div>
+          <div className="flex flex-col gap-1">
+            <h3 className="text-lg font-bold sm:text-xl">EMAIL</h3>
+            <p className="break-all text-base text-black/50 sm:text-lg">
+              info@pixelfactorylk.com
+            </p>
+          </div>
+        </div>
+
+        <form action="post" className="flex w-full max-w-3xl flex-col gap-8">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-5">
+            <input
+              type="text"
+              placeholder="Name"
+              className="w-full min-w-0 border-b border-black/30 bg-transparent py-2 text-black outline-none focus:border-black"
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              className="w-full min-w-0 border-b border-black/30 bg-transparent py-2 text-black outline-none focus:border-black"
+            />
+            <input
+              type="tel"
+              placeholder="Phone No."
+              pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"
+              className="w-full min-w-0 border-b border-black/30 bg-transparent py-2 text-black outline-none focus:border-black"
+            />
+          </div>
+          <input
+            type="text"
+            placeholder="Your design idea / Dropbox / Cloud link"
+            className="w-full min-w-0 border-b border-black/30 bg-transparent py-2 text-black outline-none focus:border-black"
+          />
+          <input
+            type="text"
+            placeholder="Your requirements"
+            className="w-full min-w-0 border-b border-black/30 bg-transparent py-2 text-black outline-none focus:border-black"
+          />
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="rounded bg-black px-6 py-2.5 font-bold text-white transition-opacity hover:opacity-90"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </Section>
+    </main>
+  );
 }

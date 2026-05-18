@@ -10,6 +10,20 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --animate-scroll: scroll 25s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility font-poppins {
+  font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,14 +33,13 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-
-* {
-  /*border: dotted red 1px;*/
-  scroll-behavior: smooth;
+  font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
 }
