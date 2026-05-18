@@ -75,14 +75,6 @@ For best social previews, add a **1200×630** image at `public/og-image.png` and
 
 Place static files (images, video, icons) in `public/`. The hero expects `/PixelFactory.webm` and section images at paths referenced in `app/pages/HomePage.tsx`.
 
-## CI
-
-`.github/workflows/ci.yml` runs on every push and pull request to `main` / `master`:
-
-- `npm ci`
-- `npm run lint`
-- `npm run build`
-
 ## Deploy
 
 Deploy with [Vercel](https://vercel.com/new) (connect the GitHub repo for automatic deploys) or any host that supports Next.js. See the [Next.js deployment docs](https://nextjs.org/docs/app/building-your-application/deploying).
