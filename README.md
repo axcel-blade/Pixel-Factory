@@ -1,8 +1,10 @@
-# Pixel Factory
+# Pixel Factory — Website
 
-Marketing site for **Pixel Factory**, a Sri Lanka–based digital content studio offering 3D visualization, web design, video production, photography, and related creative services.
+Official marketing site for **Pixel Factory**, an independent Sri Lanka–based digital content studio. The site presents services, portfolio work, client highlights, team information, and a contact form on a single scrolling page.
 
-Built with [Next.js](https://nextjs.org) (App Router), React 19, TypeScript, and Tailwind CSS v4.
+**Stack:** [Next.js](https://nextjs.org) 16 (App Router), React 19, TypeScript, Tailwind CSS v4.
+
+**Live site:** Set `NEXT_PUBLIC_SITE_URL` in `.env.local` (see [SEO](#seo)) to match your deployed domain (e.g. `https://www.pixelfactorylk.com`).
 
 ## Site structure
 
@@ -58,6 +60,17 @@ cp .env.example .env.local
 
 For best social previews, add a **1200×630** image at `public/og-image.png` and set `ogImage` in `lib/site.ts`.
 
+## Project layout
+
+| Path | Role |
+|------|------|
+| `app/page.tsx` | Entry: nav + home page |
+| `app/pages/HomePage.tsx` | All page sections (hero, services, work, etc.) |
+| `app/components/` | `Section`, `NavBar`, `ImageScroll`, `InstagramFeed`, `JsonLd` |
+| `lib/site.ts` | Site name, URL, contact, SEO keywords |
+| `lib/metadata.ts` | Next.js metadata (Open Graph, Twitter, robots) |
+| `public/` | Static assets (logo, video, service icons, client logos) |
+
 ## Assets
 
 Place static files (images, video, icons) in `public/`. The hero expects `/PixelFactory.webm` and section images at paths referenced in `app/pages/HomePage.tsx`.
@@ -69,7 +82,7 @@ GitHub Actions workflows live in `.github/workflows/`:
 | Workflow | File | When it runs |
 |----------|------|----------------|
 | **CI** | `ci.yml` | Every push and pull request to `main` / `master` — runs `npm ci`, `npm run lint`, and `npm run build` |
-| **CD** | `cd.yml` | After CI succeeds on `main` / `master`, or manually via **Actions → CD → Run workflow** — deploys to Vercel production |
+| **CD** | `cd.yml` | After CI succeeds on `main` / `master`, or manually via **Actions → CD → Run workflow** — deploys to Vercel when `VERCEL_TOKEN`, `VERCEL_ORG_ID`, and `VERCEL_PROJECT_ID` are set; otherwise the job skips deploy |
 
 ### Vercel secrets (required for CD)
 
