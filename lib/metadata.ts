@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withBasePath } from "./paths";
 import { siteConfig } from "./site";
 
 const titleDefault = `${siteConfig.name} | ${siteConfig.tagline}`;
@@ -33,7 +34,7 @@ export const rootMetadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: siteConfig.ogImage,
+        url: withBasePath(siteConfig.ogImage),
         alt: ogImageAlt,
       },
     ],
@@ -42,7 +43,7 @@ export const rootMetadata: Metadata = {
     card: "summary_large_image",
     title: titleDefault,
     description: siteConfig.description,
-    images: [siteConfig.ogImage],
+    images: [withBasePath(siteConfig.ogImage)],
     ...(siteConfig.twitterHandle
       ? { creator: siteConfig.twitterHandle, site: siteConfig.twitterHandle }
       : {}),
@@ -59,9 +60,9 @@ export const rootMetadata: Metadata = {
     },
   },
   icons: {
-    icon: "/PixelFactoryLogo.svg",
-    shortcut: "/PixelFactoryLogo.svg",
-    apple: "/PixelFactoryLogo.svg",
+    icon: withBasePath("/PixelFactoryLogo.svg"),
+    shortcut: withBasePath("/PixelFactoryLogo.svg"),
+    apple: withBasePath("/PixelFactoryLogo.svg"),
   },
   ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
     ? {

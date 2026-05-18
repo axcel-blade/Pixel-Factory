@@ -1,11 +1,12 @@
 import Image from "next/image";
+import { withBasePath } from "@/lib/paths";
 
 const images = [
   "/Uga.jpg",
   "/JHStudio.jpg",
   "/ASA.png",
   "/Athukorala.jpg",
-];
+].map((src) => withBasePath(src));
 
 export default function ImageScroll() {
   const slider = [...images, ...images];

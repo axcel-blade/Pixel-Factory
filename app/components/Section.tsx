@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ReactNode } from "react";
+import { withBasePath } from "@/lib/paths";
 
 type SectionProps = {
   id: string;
@@ -64,7 +65,7 @@ export function SectionCTA({
       className="mt-2 shrink-0 transition-opacity hover:opacity-80"
     >
       <Image
-        src={src}
+        src={withBasePath(src)}
         alt={alt}
         width={100}
         height={100}

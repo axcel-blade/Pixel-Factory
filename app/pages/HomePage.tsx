@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { withBasePath } from "@/lib/paths";
 import InstagramFeed from "../components/InstagramFeed";
 import ImageScroll from "../components/ImageScroll";
 import { Section, SectionCTA, SectionHeading } from "../components/Section";
@@ -11,7 +12,7 @@ const serviceIcons = [
   { src: "/Graphic_Designs_icon.png", alt: "Graphic Design" },
   { src: "/Video_Productions_icon.png", alt: "Video Productions" },
   { src: "/Photography_and_Videography_icon.png", alt: "Photography and Videography" },
-];
+].map((icon) => ({ ...icon, src: withBasePath(icon.src) }));
 
 export default function HomePage() {
   return (
@@ -28,7 +29,7 @@ export default function HomePage() {
           aria-hidden
           className="absolute inset-0 h-full w-full object-cover"
         >
-          <source src="/PixelFactory.webm" type="video/webm" />
+          <source src={withBasePath("/PixelFactory.webm")} type="video/webm" />
           Your browser does not support the video tag.
         </video>
 
@@ -36,7 +37,7 @@ export default function HomePage() {
 
         <div className="relative z-10 flex w-full max-w-7xl flex-col items-center gap-6 px-4 pt-24 pb-16 sm:gap-8 sm:px-6 lg:px-8">
           <Image
-            src="/WelcomePixelFactory.svg"
+            src={withBasePath("/WelcomePixelFactory.svg")}
             alt="Welcome to Pixel Factory"
             width={1080}
             height={720}
@@ -49,7 +50,7 @@ export default function HomePage() {
             aria-label="Explore services"
           >
             <Image
-              src="/ExploreServices.svg"
+              src={withBasePath("/ExploreServices.svg")}
               alt=""
               width={100}
               height={100}
@@ -134,14 +135,14 @@ export default function HomePage() {
 
         <div className="flex w-full flex-col items-center justify-center gap-6 sm:flex-row sm:flex-wrap sm:gap-8">
           <Image
-            src="/Review1.png"
+            src={withBasePath("/Review1.png")}
             alt="Client review"
             width={500}
             height={500}
             className="h-auto w-full max-w-sm sm:max-w-md"
           />
           <Image
-            src="/Review2.png"
+            src={withBasePath("/Review2.png")}
             alt="Client review"
             width={500}
             height={500}
@@ -164,7 +165,7 @@ export default function HomePage() {
 
         <div className="flex flex-col items-center gap-4">
           <Image
-            src="/MadhushaPerera.png"
+            src={withBasePath("/MadhushaPerera.png")}
             alt="Madhusha Perera"
             width={300}
             height={300}
