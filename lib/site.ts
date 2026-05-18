@@ -1,7 +1,7 @@
 const DEFAULT_SITE_URL = "https://www.pixelfactorylk.com";
 
 function resolveSiteUrl(): string {
-  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  const raw = import.meta.env.PUBLIC_SITE_URL?.trim();
   if (!raw) return DEFAULT_SITE_URL;
 
   try {

@@ -2,9 +2,9 @@
 
 Official marketing site for **Pixel Factory**, an independent Sri Lanka–based digital content studio. The site presents services, portfolio work, client highlights, team information, and a contact form on a single scrolling page.
 
-**Stack:** [Next.js](https://nextjs.org) 16 (App Router), React 19, TypeScript, Tailwind CSS v4.
+**Stack:** [Astro](https://astro.build) 5, React 19 (islands), TypeScript, Tailwind CSS v4.
 
-**Live site:** Set `NEXT_PUBLIC_SITE_URL` in `.env.local` (see [SEO](#seo)) to match your deployed domain (e.g. `https://www.pixelfactorylk.com`).
+**Live site:** Set `PUBLIC_SITE_URL` in `.env` (see [SEO](#seo)) to match your deployed domain (e.g. `https://www.pixelfactorylk.com`).
 
 ## Site structure
 
@@ -29,33 +29,33 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:4321](http://localhost:4321).
 
 ## Scripts
 
-| Command        | Description              |
-|----------------|--------------------------|
-| `npm run dev`  | Development server       |
-| `npm run build`| Production build         |
-| `npm run start`| Serve production build   |
-| `npm run lint` | Run ESLint               |
+| Command           | Description                    |
+|-------------------|--------------------------------|
+| `npm run dev`     | Development server             |
+| `npm run build`   | Production build (`dist/`)   |
+| `npm run preview` | Preview production build       |
+| `npm run lint`    | Run ESLint                     |
 
 ## SEO
 
 Metadata, Open Graph, Twitter cards, and JSON-LD are configured in `lib/site.ts` and `lib/metadata.ts`.
 
-| Route / file | Purpose |
+| File / route | Purpose |
 |--------------|---------|
-| `app/sitemap.ts` | `/sitemap.xml` for crawlers |
-| `app/robots.ts` | `/robots.txt` with sitemap link |
-| `app/manifest.ts` | Web app manifest (`/manifest.webmanifest`) |
-| `app/components/JsonLd.tsx` | Organization + WebSite structured data |
+| `@astrojs/sitemap` | `/sitemap-index.xml` for crawlers |
+| `public/robots.txt` | Crawler rules + sitemap link |
+| `public/manifest.webmanifest` | Web app manifest |
+| `src/components/JsonLd.astro` | Organization + WebSite structured data |
 
 Set your production URL (and optional Google Search Console verification) in `.env`:
 
 ```bash
-cp .env.example .env.local
-# NEXT_PUBLIC_SITE_URL=https://www.pixelfactorylk.com
+cp .env.example .env
+# PUBLIC_SITE_URL=https://www.pixelfactorylk.com
 ```
 
 For best social previews, add a **1200×630** image at `public/og-image.png` and set `ogImage` in `lib/site.ts`.
@@ -64,30 +64,33 @@ For best social previews, add a **1200×630** image at `public/og-image.png` and
 
 | Path | Role |
 |------|------|
-| `app/page.tsx` | Entry: nav + home page |
-| `app/pages/HomePage.tsx` | All page sections (hero, services, work, etc.) |
-| `app/components/` | `Section`, `NavBar`, `ImageScroll`, `InstagramFeed`, `JsonLd` |
+| `src/pages/index.astro` | Home page entry |
+| `src/components/HomePage.astro` | All page sections |
+| `src/components/` | `Section`, `NavBar`, `ImageScroll`, `InstagramFeed`, `JsonLd` |
+| `src/layouts/Layout.astro` | HTML shell, fonts, meta tags |
 | `lib/site.ts` | Site name, URL, contact, SEO keywords |
-| `lib/metadata.ts` | Next.js metadata (Open Graph, Twitter, robots) |
+| `lib/metadata.ts` | Page meta (Open Graph, Twitter) |
 | `public/` | Static assets (logo, video, service icons, client logos) |
 
 ## Assets
 
-Place static files (images, video, icons) in `public/`. The hero expects `/PixelFactory.webm` and section images at paths referenced in `app/pages/HomePage.tsx`.
+Place static files (images, video, icons) in `public/`. The hero expects `/PixelFactory.webm` and section images at paths referenced in `src/components/HomePage.astro`.
 
-## Deploy
+## CI / CD
 
-Deploy with [Vercel](https://vercel.com/new) (connect the GitHub repo for automatic deploys) or any host that supports Next.js.
+GitHub Actions workflows in `.github/workflows/`:
 
-### Vercel
+| Workflow | Trigger | Purpose |
+|----------|---------|---------|
+| `ci.yml` | Push / PR to `main` or `updates` | `npm ci`, lint, build |
+| `cd.yml` | Push to `main` | Build and deploy to **GitHub Pages** |
 
-1. Import **axcel-blade/Pixel-Factory** and set the **Production Branch** to `main` (use `updates` only for previews).
-2. In **Settings → Environment Variables**, add:
-   - `NEXT_PUBLIC_SITE_URL` = your live URL, e.g. `https://www.pixelfactorylk.com` (must be a full `https://` URL; leave unset to use the default in `lib/site.ts`).
-3. Build command: `npm run build` (default). Install command: `npm install` or `npm ci`.
+### GitHub Pages setup
 
-The `[baseline-browser-mapping]` line in build logs is a warning only, not a failure.
+1. Repo **Settings → Pages → Build and deployment**: source **GitHub Actions**.
+2. Optional: **Settings → Secrets and variables → Actions → Variables** — set `PUBLIC_SITE_URL` to your live URL for production builds.
+3. After the first `cd.yml` run on `main`, the site is served from the `github-pages` environment URL (or your custom domain).
 
 Before pushing, verify locally: `npm run build`.
 
-See the [Next.js deployment docs](https://nextjs.org/docs/app/building-your-application/deploying).
+You can also deploy the `dist/` folder to [Vercel](https://vercel.com), Netlify, or any static host.
