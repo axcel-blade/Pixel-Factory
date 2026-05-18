@@ -2,30 +2,25 @@
   "name": "pixelfactory",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "lint": "eslint ."
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
   },
   "dependencies": {
-    "@astrojs/react": "^4.4.2",
-    "@astrojs/sitemap": "^3.7.0",
-    "astro": "^5.16.3",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "next": "^16.0.11",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
-    "@tailwindcss/vite": "^4.1.17",
-    "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.2",
-    "eslint": "^9.39.1",
-    "eslint-plugin-astro": "^1.5.0",
-    "globals": "^16.5.0",
-    "tailwindcss": "^4.1.17",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.4"
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "^16.0.11",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
