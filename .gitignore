@@ -7,10 +7,6 @@
 /.next/
 /out/
 
-# astro (legacy)
-/dist
-/.astro
-
 # misc
 .DS_Store
 *.pem
