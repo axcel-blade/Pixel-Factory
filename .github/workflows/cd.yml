@@ -36,8 +36,12 @@ jobs:
       - name: Build for GitHub Pages
         run: npm run build
         env:
+          # Must include /Pixel-Factory path for project Pages unless using a custom domain at root
           NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL || steps.pages.outputs.base_url }}
           GITHUB_ACTIONS: true
+
+      - name: Verify static export output
+        run: test -f out/index.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
