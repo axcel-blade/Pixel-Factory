@@ -75,29 +75,14 @@ For best social previews, add a **1200×630** image at `public/og-image.png` and
 
 Place static files (images, video, icons) in `public/`. The hero expects `/PixelFactory.webm` and section images at paths referenced in `app/pages/HomePage.tsx`.
 
-## CI / CD
+## CI
 
-GitHub Actions workflows live in `.github/workflows/`:
+`.github/workflows/ci.yml` runs on every push and pull request to `main` / `master`:
 
-| Workflow | File | When it runs |
-|----------|------|----------------|
-| **CI** | `ci.yml` | Every push and pull request to `main` / `master` — runs `npm ci`, `npm run lint`, and `npm run build` |
-| **CD** | `cd.yml` | After CI succeeds on `main` / `master`, or manually via **Actions → CD → Run workflow** — deploys to Vercel when `VERCEL_TOKEN`, `VERCEL_ORG_ID`, and `VERCEL_PROJECT_ID` are set; otherwise the job skips deploy |
-
-### Vercel secrets (required for CD)
-
-In the GitHub repo, go to **Settings → Secrets and variables → Actions** and add:
-
-| Secret | Description |
-|--------|-------------|
-| `VERCEL_TOKEN` | [Vercel account token](https://vercel.com/account/settings/tokens) |
-| `VERCEL_ORG_ID` | Team or user ID from Vercel project settings |
-| `VERCEL_PROJECT_ID` | Project ID from Vercel project settings |
-
-Link the repo to a Vercel project first, then run `vercel link` locally or copy IDs from the Vercel dashboard (**Project → Settings → General**).
-
-Optional: configure a **production** [GitHub environment](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment) named `production` for approval gates before deploy.
+- `npm ci`
+- `npm run lint`
+- `npm run build`
 
 ## Deploy
 
-Production deploys are automated via the CD workflow to [Vercel](https://vercel.com/new). You can also deploy manually from the Vercel dashboard or CLI. See the [Next.js deployment docs](https://nextjs.org/docs/app/building-your-application/deploying).
+Deploy with [Vercel](https://vercel.com/new) (connect the GitHub repo for automatic deploys) or any host that supports Next.js. See the [Next.js deployment docs](https://nextjs.org/docs/app/building-your-application/deploying).
