@@ -77,4 +77,17 @@ Place static files (images, video, icons) in `public/`. The hero expects `/Pixel
 
 ## Deploy
 
-Deploy with [Vercel](https://vercel.com/new) (connect the GitHub repo for automatic deploys) or any host that supports Next.js. See the [Next.js deployment docs](https://nextjs.org/docs/app/building-your-application/deploying).
+Deploy with [Vercel](https://vercel.com/new) (connect the GitHub repo for automatic deploys) or any host that supports Next.js.
+
+### Vercel
+
+1. Import **axcel-blade/Pixel-Factory** and set the **Production Branch** to `main` (use `updates` only for previews).
+2. In **Settings → Environment Variables**, add:
+   - `NEXT_PUBLIC_SITE_URL` = your live URL, e.g. `https://www.pixelfactorylk.com` (must be a full `https://` URL; leave unset to use the default in `lib/site.ts`).
+3. Build command: `npm run build` (default). Install command: `npm install` or `npm ci`.
+
+The `[baseline-browser-mapping]` line in build logs is a warning only, not a failure.
+
+Before pushing, verify locally: `npm run build`.
+
+See the [Next.js deployment docs](https://nextjs.org/docs/app/building-your-application/deploying).

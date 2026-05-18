@@ -1,12 +1,24 @@
+const DEFAULT_SITE_URL = "https://www.pixelfactorylk.com";
+
+function resolveSiteUrl(): string {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (!raw) return DEFAULT_SITE_URL;
+
+  try {
+    const withProtocol = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+    return new URL(withProtocol).origin;
+  } catch {
+    return DEFAULT_SITE_URL;
+  }
+}
+
 export const siteConfig = {
   name: "Pixel Factory",
   legalName: "Pixel Factory",
   tagline: "3D Visualization, Web Design & Video Production",
   description:
     "Pixel Factory is a Sri Lanka–based digital content studio specializing in 3D architectural visualization, product animation, web design, graphic design, video production, and photography.",
-  url:
-    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-    "https://www.pixelfactorylk.com",
+  url: resolveSiteUrl(),
   locale: "en_LK",
   email: "info@pixelfactorylk.com",
   phone: "+61-123-456-789",
