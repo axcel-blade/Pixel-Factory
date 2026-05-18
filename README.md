@@ -4,7 +4,7 @@ Official marketing site for **Pixel Factory**, an independent Sri Lanka–based 
 
 **Stack:** [Next.js](https://nextjs.org) 16 (App Router), React 19, TypeScript, Tailwind CSS v4.
 
-**Live site:** Set `NEXT_PUBLIC_SITE_URL` in `.env.local` (see [SEO](#seo)) to match your deployed domain (e.g. `https://www.pixelfactorylk.com`).
+**Live site:** [https://axcel-blade.github.io/Pixel-Factory/](https://axcel-blade.github.io/Pixel-Factory/) (GitHub Pages). Set `NEXT_PUBLIC_SITE_URL` in `.env.local` for local builds (see [SEO](#seo)).
 
 ## Site structure
 
@@ -75,23 +75,30 @@ For best social previews, add a **1200×630** image at `public/og-image.png` and
 
 Place static files (images, video, icons) in `public/`. The hero expects `/PixelFactory.webm` and section images at paths referenced in `app/pages/HomePage.tsx`.
 
-## CI / CD
+## Deploy (GitHub Pages only)
 
-GitHub Actions workflows in `.github/workflows/`:
+This site is published **only** via GitHub Pages. There is no Vercel (or other host) configuration in this repo.
 
 | Workflow | Trigger | Purpose |
 |----------|---------|---------|
 | `ci.yml` | Push / PR to `main` or `updates` | `npm ci`, lint, build |
-| `cd.yml` | Push to `main` | Static export and deploy to **GitHub Pages** |
+| `cd.yml` | Push to `main` | Static export → deploy `out/` to GitHub Pages |
 
-### GitHub Pages setup
+### Setup
 
-1. Repo **Settings → Pages → Build and deployment**: source **GitHub Actions**.
-2. Push to `main` — `cd.yml` runs `next build` (static export) and deploys the `out/` folder.
-3. Default project URL: `https://axcel-blade.github.io/Pixel-Factory/`.
-4. **Custom domain**: configure under **Settings → Pages**, then set repo variable `NEXT_PUBLIC_SITE_URL` to `https://www.pixelfactorylk.com`.
+1. **Settings → Pages → Build and deployment**: source **GitHub Actions**.
+2. Push to **`main`** — `cd.yml` runs `next build` and deploys `out/`.
+3. Site URL: `https://axcel-blade.github.io/Pixel-Factory/`.
+4. **Custom domain** (optional): add the domain under **Settings → Pages**, then set repo variable `NEXT_PUBLIC_SITE_URL` to `https://www.pixelfactorylk.com`.
 
-Local preview matching GitHub Pages:
+### Disconnect Vercel (if previously linked)
+
+If the repo was connected to Vercel, remove it so only GitHub Pages deploys:
+
+1. [Vercel dashboard](https://vercel.com/dashboard) → project → **Settings** → delete or disconnect the GitHub repo, **or**
+2. GitHub **Settings → Integrations → Applications** → **Vercel** → configure → remove access to this repository.
+
+### Local preview (matches GitHub Pages)
 
 ```bash
 set NEXT_PUBLIC_SITE_URL=https://axcel-blade.github.io/Pixel-Factory
@@ -100,6 +107,4 @@ npm run build
 npx serve out
 ```
 
-Before pushing, verify locally: `npm run build`.
-
-You can also deploy to [Vercel](https://vercel.com) (omit `GITHUB_ACTIONS` and use your production `NEXT_PUBLIC_SITE_URL`).
+Before pushing to `main`, verify: `npm run build`.
