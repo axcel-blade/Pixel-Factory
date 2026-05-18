@@ -1,10 +1,15 @@
 # dependencies
 /node_modules
+/.pnp
+.pnp.*
 
-# build
+# next.js
+/.next/
+/out/
+
+# astro (legacy)
 /dist
 /.astro
-/.next
 
 # misc
 .DS_Store
@@ -22,5 +27,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+next-env.d.ts
 
 CLAUDE.md

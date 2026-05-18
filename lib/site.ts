@@ -1,12 +1,14 @@
 const DEFAULT_SITE_URL = "https://www.pixelfactorylk.com";
 
 function resolveSiteUrl(): string {
-  const raw = import.meta.env.PUBLIC_SITE_URL?.trim();
+  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
   if (!raw) return DEFAULT_SITE_URL;
 
   try {
     const withProtocol = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
-    return new URL(withProtocol).origin;
+    const url = new URL(withProtocol);
+    const path = url.pathname.replace(/\/$/, "");
+    return path ? `${url.origin}${path}` : url.origin;
   } catch {
     return DEFAULT_SITE_URL;
   }

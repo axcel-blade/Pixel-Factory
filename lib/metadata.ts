@@ -1,28 +1,73 @@
+import type { Metadata } from "next";
 import { siteConfig } from "./site";
 
 const titleDefault = `${siteConfig.name} | ${siteConfig.tagline}`;
 const ogImageAlt = `${siteConfig.name} — ${siteConfig.tagline}`;
 
-export const pageMeta = {
-  title: titleDefault,
+export const rootMetadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: titleDefault,
+    template: `%s | ${siteConfig.name}`,
+  },
   description: siteConfig.description,
-  keywords: siteConfig.keywords.join(", "),
-  canonical: siteConfig.url,
-  og: {
+  keywords: [...siteConfig.keywords],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  category: "technology",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
     type: "website",
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
     title: titleDefault,
     description: siteConfig.description,
-    image: new URL(siteConfig.ogImage, siteConfig.url).href,
-    imageAlt: ogImageAlt,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        alt: ogImageAlt,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: titleDefault,
     description: siteConfig.description,
-    image: new URL(siteConfig.ogImage, siteConfig.url).href,
+    images: [siteConfig.ogImage],
+    ...(siteConfig.twitterHandle
+      ? { creator: siteConfig.twitterHandle, site: siteConfig.twitterHandle }
+      : {}),
   },
-  googleSiteVerification: import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION,
-} as const;
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/PixelFactoryLogo.svg",
+    shortcut: "/PixelFactoryLogo.svg",
+    apple: "/PixelFactoryLogo.svg",
+  },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        verification: {
+          google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+        },
+      }
+    : {}),
+};
