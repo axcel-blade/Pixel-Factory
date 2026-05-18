@@ -1,0 +1,35 @@
+---
+interface Props {
+  id: string;
+  class?: string;
+  innerClass?: string;
+  variant?: "default" | "light";
+}
+
+const {
+  id,
+  class: className = "",
+  innerClass: innerClassName = "",
+  variant = "default",
+} = Astro.props;
+
+const variantClass = variant === "light" ? "bg-white text-black" : "";
+---
+
+<section
+  id={id}
+  class:list={[
+    "flex min-h-screen w-full scroll-mt-24 items-center py-16 sm:py-20",
+    variantClass,
+    className,
+  ]}
+>
+  <div
+    class:list={[
+      "mx-auto flex w-full max-w-7xl flex-col items-center gap-8 px-4 sm:gap-10 sm:px-6 lg:px-8",
+      innerClassName,
+    ]}
+  >
+    <slot />
+  </div>
+</section>

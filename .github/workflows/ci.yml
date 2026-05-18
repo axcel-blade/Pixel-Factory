@@ -2,19 +2,17 @@ name: CI
 
 on:
   push:
-    branches: [main, master]
+    branches: [main, updates]
   pull_request:
-    branches: [main, master]
+    branches: [main, updates]
 
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  lint-and-build:
-    name: Lint & Build
+  build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,7 +20,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: "22"
           cache: npm
 
       - name: Install dependencies
@@ -33,3 +31,5 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          PUBLIC_SITE_URL: https://www.pixelfactorylk.com
